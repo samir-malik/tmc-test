@@ -25,8 +25,13 @@ async function createUser() {
   }
 }
 
-// only allow dates in past
-document.getElementById("dob").setAttribute(
- "max",
- new Date().toISOString().split("T")[0]
-);
+// only allow date from today to 150 years in the past
+// only allow dates 150 year in the past
+const todayDate =  new Date();
+const maxDate = todayDate.toISOString().split("T")[0]
+const minDate = (
+    new Date(todayDate.getFullYear() - 150, todayDate.getMonth(), todayDate.getDate())
+).toISOString().split("T")[0];
+document.getElementById("dob").setAttribute("min", minDate);
+document.getElementById("dob").setAttribute("max", maxDate);
+
