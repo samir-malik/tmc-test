@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    volumes:
+      - ./:/src:ro
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    expose:
+      - "5432"
+    environment:
+      POSTGRES_USER: tmc
+      POSTGRES_PASSWORD: tmc
+      POSTGRES_DB: tmc
+volumes:
+  postgres_data:

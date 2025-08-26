@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br />
+
+<div id="parent-div">
+  <form id="form-create-user"/>
+    <div class="form-group row">
+      <label for="first-name" class="col-sm-1 col-form-label"><b>First Name:</b></label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="first-name" name="first_name" placeholder="Enter first name">
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="last-name" class="col-sm-1 col-form-label"><b>Last Name:</b></label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="last-name" name="last_name" placeholder="Enter last name">
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="dob" class="col-sm-1 col-form-label"><b>Date of Birth:</b></label>
+      <div class="col-sm-2">
+        <input type="date" class="form-control" id="dob" name="dob">
+      </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>
+
+<script src="{{ url_for('static', path='CreateUser.js') }}"></script>
+<script>
+  //override form submission
+  const form = document.querySelector("#form-create-user");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    createUser();
+  });
+</script>
+
+{% endblock content %}

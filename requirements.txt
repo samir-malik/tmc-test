@@ -1,0 +1,9 @@
+fastapi[standard]
+psycopg2-binary
+SQLAlchemy==2.0.43
+Jinja2==3.1.6
+aiofiles==24.1.0
+python-dateutil==2.9.0
+freezegun==0.3.4
+mock==5.2.0
+pytest-env==1.1.5

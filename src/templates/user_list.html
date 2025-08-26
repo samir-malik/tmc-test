@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div id="parent-div">
+
+    <body onload="getUsers()">
+    <table class="table" id="user-table">
+        <thead id="thead">
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
+
+    </body>
+
+</div>
+
+<script src="{{ url_for('static', path='GetUsers.js') }}"></script>
+<script src="{{ url_for('static', path='DeleteUser.js') }}"></script>
+<script>
+    function noUsers(){
+        const html_result = ' <br /><h5>No users in database<h5>'
+        document.getElementById("parent-div").innerHTML =  html_result;
+    }
+</script>
+
+
+
+{% endblock content %}
+
